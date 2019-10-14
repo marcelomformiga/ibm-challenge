@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="formiga">
+        <createTable tableName="cliente">
+            <column name="id" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(60)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="formiga">
+        <createTable tableName="conta">
+            <column name="id" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="agencia" type="INTEGER(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numero" type="INTEGER(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="saldo" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="formiga" >
+        <addForeignKeyConstraint
+            baseColumnNames="cliente_id"
+            baseTableName="conta"
+            constraintName="fk_cliente_conta"
+            referencedColumnNames="id"
+            referencedTableName="cliente"
+        />
+    </changeSet>
+
+</databaseChangeLog>
