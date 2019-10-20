@@ -16,4 +16,9 @@ public class GenericDTO {
     @Setter
     private Long id;
     
+    
+    public GenericDTO(Long id) {
+        this.id = id;
+    }
+    
 }

@@ -1,6 +1,7 @@
 
 package br.com.ibm.challenge.domain;
 
+
 import br.com.ibm.challenge.domain.Cliente;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -35,10 +36,10 @@ public class Conta implements Serializable {
     private Long id;
 
     @Column(name = "agencia", length = 4, nullable = false)
-    private String agencia;
+    private Integer agencia;
 
     @Column(name = "numero", length = 6, nullable = false)
-    private String numero;
+    private Integer numero;
 
     @Column(name = "saldo", nullable = false)
     private BigDecimal saldo;
@@ -54,7 +55,7 @@ public class Conta implements Serializable {
     }
 
     @Builder
-    public Conta(Long id, String agencia, String numero, BigDecimal saldo, Cliente cliente) {
+    public Conta(Long id, Integer agencia, Integer numero, BigDecimal saldo, Cliente cliente) {
         this.id = id;
         this.agencia = agencia;
         this.numero = numero;

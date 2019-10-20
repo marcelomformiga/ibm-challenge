@@ -3,6 +3,7 @@ package br.com.ibm.challenge.dto;
 
 
 import javax.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -26,5 +27,13 @@ public class ClienteDTO extends GenericDTO {
     @Getter
     @Setter
     private String email;
+    
+    
+    @Builder
+    public ClienteDTO(Long id, String nome, String email) {
+        super(id);
+        this.nome = nome;
+        this.email = email;
+    }
     
 }
