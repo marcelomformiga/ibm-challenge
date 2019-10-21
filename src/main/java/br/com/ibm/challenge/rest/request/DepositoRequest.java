@@ -2,6 +2,7 @@
 package br.com.ibm.challenge.rest.request;
 
 
+import java.math.BigDecimal;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -13,7 +14,7 @@ import lombok.Setter;
  *
  * @author formiga
  */
-public class SaqueRequest {
+public class DepositoRequest {
     
     @NotNull(message = "[Agência] não pode ser nula!")
     @Min(value = 1L)
@@ -32,6 +33,11 @@ public class SaqueRequest {
     @NotNull(message = "[Valor] não pode ser nulo!")
     @Getter
     @Setter
-    private Double valor;
+    private BigDecimal valor;
+    
+    @NotNull(message = "[Tipo de Depósito] não pode ser nulo!")
+    @Getter
+    @Setter
+    private String tipoDeposito;
     
 }

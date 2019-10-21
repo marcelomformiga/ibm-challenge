@@ -1,40 +1,22 @@
 # IBM ATM Challenge
 
-Você deve criar uma API de Caixa ATM, onde deve ser possível executar operações de saque, depósito, transferência, extrato e produzir um relatório de fechamento, além de operações e controles que forem necessários.
+Projeto Java 8 criado com Maven. Foi desenvolvido utilizando os frameworks Spring e a arquitetura REST.
 
-* Para as operações estarem disponíveis o caixa deve estar aberto, ou seja, deve ser previsto operações de abertura e fechamento de caixa.
+Banco de dados utilizado é o MySQL. Para criação do mesmo, foi cofigurado o Liquibase e uma imagem Docker. Para persistência e modelagem, optamos pelo Spring JPA e o Hibernate.
 
-### Saque
- - Para operações de saque, devem ser informados os dados necessários como entrada da operação, e retornar as cédulas que serão retiradas do caixa, além de dados complementares em caso de necessidade. 
- 
-### Depósito
- - Para operações de depósito, devem ser informados os dados necessários como entrada da operação, além do tipo de depósito (DINHEIRO, CHEQUE) e retornar os dados necessários para o comprovante.
+Aplicação disponibilizada na <b>URL: localhost:8080 </b> com auxílio do Spring Boot.
 
-### Transferência
- - Para operações de transferência, devem ser informados os dados necessários para a operação das contas origem e destino, com cenários de validação de saldo e possibilidade de agendamento.
- 
-## Como entregar estes desafios
-Você deve *forkar* este projeto e fazer o *push* no seu próprio repositório e enviar o link para o email do recrutador, junto com seu LinkedIn atualizado.
+### Operações
 
-A implementação deve ficar na pasta correspondente ao desafio. Fique à vontade para adicionar qualquer tipo de conteúdo que julgue útil ao projeto, alterar/acrescentar um README com instruções de como executá-lo, etc.
+## Saque
 
-## Critérios de Avaliação
-- Clean code;
-- Scalability/Performance;
-- Flexibility/Extensibility;
-- SOC (Separation of Concerns);
-- Tratamento de erros e exceções;
-- Lógica utilizada para a resolução do exercício.
-  
-**Observação:**
-- Deve-se utilizar linguagem Java em versões 8+;
-- A aplicação deve ser em SpringBoot conforme template deste repositório;
-- Você não deve fazer um *Pull Request* para este projeto!
+Criada rotina para entregar o menor número de cédulas possível. Pode-se sacar notas de 5 a 100 reais, e para isso, verifica-se se o valor solicitado é divisível por 5.
+Também verifica-se se o Cliente possui saldo suficiente. Caso OK, se atualiza o saldo da conta.
 
-## Extras
-- Utilização do Docker;
-- Programação Funcional;
-- Testes unitários ou de integração;
-- Explique o processo de resolução do desafio;
-- Regras de sugestão de cédulas para melhor distribuição e disponibilidade no caixa;
-- Banco de dados, contemplando os dados de contas corrente e informações de cada operação realizada.
+## Depósito
+
+Além de atualizar o saldo da Conta, se grava na base de dados também a operação de depósito.
+
+## Transferência
+
+Valida as contas de origem e destino. Caso estejam OK, atualiza o saldo de ambas.

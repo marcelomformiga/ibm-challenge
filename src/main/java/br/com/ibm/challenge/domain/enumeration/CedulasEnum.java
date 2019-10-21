@@ -10,9 +10,7 @@ import lombok.Getter;
  * @author formiga
  */
 public enum CedulasEnum {
-    
-    UM(1),
-    DOIS(2),
+
     CINCO(5),
     DEZ(10),
     VINTE(20),

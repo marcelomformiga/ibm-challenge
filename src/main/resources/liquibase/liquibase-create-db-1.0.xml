@@ -46,5 +46,32 @@
             referencedTableName="cliente"
         />
     </changeSet>
+    
+    <changeSet id="4" author="formiga">
+        <createTable tableName="deposito">
+            <column name="id" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="tipo_deposito" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_hora" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="saldo" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="5" author="formiga" >
+        <addForeignKeyConstraint
+            baseColumnNames="conta_id"
+            baseTableName="deposito"
+            constraintName="fk_conta_deposito"
+            referencedColumnNames="id"
+            referencedTableName="conta"
+        />
+    </changeSet>
 
 </databaseChangeLog>

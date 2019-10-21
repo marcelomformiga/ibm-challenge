@@ -17,6 +17,10 @@ public class GenericDTO {
     private Long id;
     
     
+    public GenericDTO() {
+        super();
+    }
+    
     public GenericDTO(Long id) {
         this.id = id;
     }

@@ -9,14 +9,12 @@ import lombok.Setter;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import lombok.Builder;
-import org.springframework.stereotype.Component;
 
 
 /**
  *
  * @author formiga
  */
-@Component(value = "contaDTO")
 public class ContaDTO extends GenericDTO {
 
     @NotNull(message = "[Agência] não pode ser nula!")
@@ -43,6 +41,10 @@ public class ContaDTO extends GenericDTO {
     @Setter
     private ClienteDTO clienteDTO;
     
+    
+    public ContaDTO() {
+        super();
+    }
 
     @Builder
     public ContaDTO(Long id, Integer agencia, Integer numero, BigDecimal saldo, ClienteDTO clienteDTO) {
