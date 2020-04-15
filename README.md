@@ -10,7 +10,7 @@ Aplicação disponibilizada na <b>URL: localhost:8080 </b> com auxílio do Sprin
 
 ## Saque
 
-Criada rotina para entregar o menor número de cédulas possível. Pode-se sacar notas de 5 a 100 reais, e para isso, verifica-se se o valor solicitado é divisível por 5.
+Foi criada rotina para entregar o menor número de cédulas possível. Pode-se sacar notas de 5 a 100 reais, e para isso, verifica-se se o valor solicitado é divisível por 5.
 Também verifica-se se o Cliente possui saldo suficiente. Caso OK, se atualiza o saldo da conta.
 
 ## Depósito
